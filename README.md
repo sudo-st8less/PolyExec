@@ -52,7 +52,7 @@ Traffic jitter<br>
 
 #### Host the payload:
 
-    python3 -m http.server 8000
+    python3 -m http.server 6969
 
 #### powershell On Windows target:
 
