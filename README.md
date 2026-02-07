@@ -1,6 +1,10 @@
 ## PolyExec: Generate polymorphic ps payloads and catch the shells in an aes-256 tunnel. 
 #### This program is only tested on one pair of OSs at the moment.
 
+#### polyexecgen.py - Generate obfuscated PS payloads <br>
+#### c2_catcher.py - Receive the encrypted tunnel
+
+--- 
 
 ### C2: <br>
 
@@ -64,9 +68,11 @@ Traffic jitter<br>
  - Scheduled task at logon
  - File copy to %APPDATA%
  
---- 
+---
 
-### polyexecgen.py - Generate obfuscated PS payloads <br>
-### c2_catcher.py - Receive the encrypted tunnel
- <br>
+### ideas borrowed from cool humans: <br>
+
+@danielbohannon  <br>
+@harmj0y  <br>
+@enigma0x3  <br>
  <br>
