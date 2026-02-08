@@ -1,4 +1,4 @@
-## PolyExec: Generate polymorphic ps payloads and catch the shells in an aes-256 tunnel. 
+## PolyExec: Generate polymorphic PS payloads and catch the shells in an aes-256 tunnel. 
 #### Tested on Debian, Fedora, Windows 10, Windows 11 25H2 KB5074109
 
 ##### polyexecgen.py - Generate obfuscated PS payloads <br>
